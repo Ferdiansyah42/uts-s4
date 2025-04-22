@@ -116,3 +116,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 12,
   },
+
+  description: {
+    fontSize: 16,
+    marginTop:12
+    paddingHorizontal: 12,
+  },
+  
