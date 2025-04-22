@@ -111,3 +111,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 180,
   },
+
+  name: {
+    fontSize: 18,
+    padding: 12,
+  },
