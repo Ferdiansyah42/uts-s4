@@ -48,4 +48,15 @@ function HomeScreen({ navigation }) {
     </TouchableOpacity>
   );
 
+  return (
+    <view style={styles.container}>
+      <text style={styles.title}> Macam-Macam Resep</text>
+      <FlatList
+      data={meals}
+      renderItem={renderItem}
+      keyExtractor={(item) +> item.idMeal}
+      />
+    </view>
+  );
+
 };
