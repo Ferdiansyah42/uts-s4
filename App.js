@@ -59,3 +59,15 @@ function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+// Halaman Detail: tampilkan info resep
+function DetailScreen({ route }) {
+  const { recipe } = route.params;
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: recipe.strMealThumb }} style={styles.image} />
+      <Text style={styles.title}>{recipe.strMeal}</Text>
+      <Text style={styles.description}>{recipe.strInstructions}</Text>
+    </View>
+  );
+}
