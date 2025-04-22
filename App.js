@@ -106,3 +106,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     elevation: 2,
   },
+
+  image: {
+    width: '100%',
+    height: 180,
+  },
