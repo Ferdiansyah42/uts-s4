@@ -28,13 +28,13 @@ function HomeScreen({ navigation }) {
 
   useEffect(() => {
     getMeals();
-  }, [])
+  }, []);
 
-  if (loading){
-    return(
-      <view>
+  if (loading) {
+    return (
+      <View style={styles.centered}>
         <ActivityIndicator size="large" color="#f39c12" />
-      </view>
+      </View>
     );
   }
 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#fff',
   },
-
+  
   title: {
     fontSize: 24,
     marginBottom: 16,
@@ -119,13 +119,12 @@ const styles = StyleSheet.create({
 
   description: {
     fontSize: 16,
-    marginTop:12
+    marginTop: 12,
     paddingHorizontal: 12,
   },
-
-  centered : {
+  centered: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'senter',
+    alignItems: 'center',
   },
-}),
+});
