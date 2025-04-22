@@ -1,6 +1,11 @@
 // App.js
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
+import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import axios from 'axios';
+import { enableScreens } from 'react-native-screens';
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -20,5 +25,4 @@ function HomeScreen({ navigation }) {
       setLoading(false);
     }
   };
-
 }
