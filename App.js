@@ -25,4 +25,17 @@ function HomeScreen({ navigation }) {
       setLoading(false);
     }
   };
-}
+
+  useEffect(() => {
+    getMeals();
+  }, [])
+
+  if (loading){
+    return(
+      <view>
+        <ActivityIndicator size="large" color="#f39c12" />
+      </view>
+    );
+  }
+
+};
