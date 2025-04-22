@@ -38,4 +38,14 @@ function HomeScreen({ navigation }) {
     );
   }
 
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate('Detail', { recipe: item })}
+    >
+      <Image source={{ uri: item.strMealThumb }} style={styles.image} />
+      <Text style={styles.name}>{item.strMeal}</Text>
+    </TouchableOpacity>
+  );
+
 };
