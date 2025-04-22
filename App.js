@@ -98,3 +98,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+
+  card: {
+    marginBottom: 20,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 12,
+    overflow: 'hidden',
+    elevation: 2,
+  },
