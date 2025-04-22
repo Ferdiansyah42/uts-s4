@@ -122,4 +122,10 @@ const styles = StyleSheet.create({
     marginTop:12
     paddingHorizontal: 12,
   },
-  
+
+  centered : {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'senter',
+  },
+}),
