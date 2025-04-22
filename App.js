@@ -49,14 +49,13 @@ function HomeScreen({ navigation }) {
   );
 
   return (
-    <view style={styles.container}>
-      <text style={styles.title}> Macam-Macam Resep</text>
+    <View style={styles.container}>
+      <Text style={styles.title}>🍽️ Daftar Resep</Text>
       <FlatList
-      data={meals}
-      renderItem={renderItem}
-      keyExtractor={(item) +> item.idMeal}
+        data={meals}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.idMeal}
       />
-    </view>
+    </View>
   );
-
-};
+}
