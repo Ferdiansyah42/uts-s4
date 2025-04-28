@@ -45,4 +45,44 @@ export default function Homescreen({navigation}){
         </View>
       );
     }
-}
+    
+    return (
+        <View style={styles.container}>
+          <Text style={styles.hello}>HELLO</Text>
+          <Text style={styles.welcome}>SELAMAT DATANG DI RESEP ALL STAR</Text>
+          
+          <View style={styles.searchContainer}>
+            <TextInput
+              placeholder="Cari makanan..."
+              style={styles.input}
+              value={searchText}
+              onChangeText={(text) => setSearchText(text)}
+            />
+            <Ionicons name="search" size={24} color="black" style={styles.searchIcon} />
+          </View>
+    
+          <View style={styles.menuContainer}>
+            <TouchableOpacity style={styles.popularButton}>
+              <Text style={styles.popularText}>Populer</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.favoriteButton}>
+              <Text style={styles.favoriteText}>Favorit</Text>
+            </TouchableOpacity>
+          </View>
+    
+          {filteredMeals.length === 0 ? (
+            <View style={styles.notFoundContainer}>
+              <Text style={styles.notFoundText}>🍽️ Makanan tidak ditemukan</Text>
+            </View>
+          ) : (
+            <FlatList
+              data={filteredMeals}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.idMeal}
+              numColumns={2}
+              contentContainerStyle={{ paddingBottom: 80 }}
+            />
+          )}
+        </View>
+      );
+    }
