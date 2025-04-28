@@ -17,26 +17,25 @@ function HomeStack() {
   );
 }
 
-export default function App (){
+export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
-          let iconName;
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ color, size }) => {
+            let iconName;
 
-          if (route.name === 'Home'){
-            iconName = 'home';
-          }
-          else if (route.name === 'About'){
-            iconName = 'information-circle';
-          }
+            if (route.name === 'Home') {
+              iconName = 'home';
+            } else if (route.name === 'About') {
+              iconName = 'information-circle';
+            }
 
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: '#f39c12',
-        tabBarInactiveTintColor: 'gray',
-      })}
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: '#f39c12',
+          tabBarInactiveTintColor: 'gray',
+        })}
       >
         <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false }} />
         <Tab.Screen name="About" component={AboutScreen} />
