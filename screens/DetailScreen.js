@@ -17,3 +17,12 @@ export default function DetailScreen({ route }) {
         </ScrollView>
     );
 }
+
+const style = StyleSheet.create ({
+    container: {flex: 1, backgroundColor: '#fff'},
+    image: {width: '100%', height: 250 },
+    title: { fontSize: 24, fontWeight: 'bold', marginVertical: 10, textAlign: 'center'},
+    origin: {fontSize: 16, marginBottom: 10, textAlign: 'center'},
+    subtitle: { fontSize: 18, fontWeight: 'bold', marginHorizontal: 16, marginBottom: 8},
+    instructions: {fontSize: 16, marginHorizontal: 16, lineHeight: 22},
+});
