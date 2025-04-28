@@ -14,38 +14,46 @@ const RootStack = createStackNavigator();
 const HomeStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function HomeStack() {
+function HomeStackScreen() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Detail" component={DetailScreen} />
-    </Stack.Navigator>
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Detail" component={DetailScreen} />
+    </HomeStack.Navigator>
+  );
+}
+
+function HomeTabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+          if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'About') {
+            iconName = 'information-circle';
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#f39c12',
+        tabBarInactiveTintColor: 'gray',
+        headerShown: false,
+      })}
+    >
+      <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen name="About" component={AboutScreen} />
+    </Tab.Navigator>
   );
 }
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ color, size }) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = 'home';
-            } else if (route.name === 'About') {
-              iconName = 'information-circle';
-            }
-
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: '#f39c12',
-          tabBarInactiveTintColor: 'gray',
-        })}
-      >
-        <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false }} />
-        <Tab.Screen name="About" component={AboutScreen} />
-      </Tab.Navigator>
+      <RootStack.Navigator initialRouteName="Welcome">
+        <RootStack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
+        <RootStack.Screen name="HomeTab" component={HomeTabs} options={{ headerShown: false }} />
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 }
