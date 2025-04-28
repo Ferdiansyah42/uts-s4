@@ -85,3 +85,23 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: { flex: 1, backgroundColor: '#fff', padding: 16 },
+    hello: { fontSize: 24, fontWeight: 'bold' },
+    welcome: { fontSize: 14, marginBottom: 16 },
+    searchContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#eee', borderRadius: 10, marginBottom: 16 },
+    input: { flex: 1, padding: 10 },
+    searchIcon: { marginRight: 10 },
+    menuContainer: { flexDirection: 'row', marginBottom: 16 },
+    popularButton: { backgroundColor: '#f39c12', padding: 8, borderRadius: 20, marginRight: 10 },
+    favoriteButton: { backgroundColor: '#ccc', padding: 8, borderRadius: 20 },
+    popularText: { color: '#fff' },
+    favoriteText: { color: '#333' },
+    card: { flex: 1, backgroundColor: '#f9f9f9', margin: 8, borderRadius: 10, overflow: 'hidden', elevation: 2 },
+    image: { width: '100%', height: 120 },
+    name: { padding: 8, fontWeight: 'bold', textAlign: 'center' },
+    centered: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+    notFoundContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20 },
+    notFoundText: { fontSize: 18, color: '#888' },
+  });
