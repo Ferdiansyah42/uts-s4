@@ -1,3 +1,4 @@
+// HomeScreen.js
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
 import axios from 'axios';
@@ -6,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default function HomeScreen({ navigation }) {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState(''); // << Tambahan
+  const [searchText, setSearchText] = useState('');
 
   const getMeals = async () => {
     try {
@@ -23,9 +24,9 @@ export default function HomeScreen({ navigation }) {
     getMeals();
   }, []);
 
-  const filteredMeals = meals.filter((meal) =>
+  const filteredMeals = meals?.filter((meal) =>
     meal.strMeal.toLowerCase().includes(searchText.toLowerCase())
-  );
+  ) || [];
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
@@ -49,7 +50,7 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.hello}>HELLO</Text>
       <Text style={styles.welcome}>SELAMAT DATANG DI RESEP ALL STAR</Text>
-      
+
       <View style={styles.searchContainer}>
         <TextInput
           placeholder="Cari makanan..."
@@ -87,21 +88,21 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: '#fff', padding: 16 },
-    hello: { fontSize: 24, fontWeight: 'bold' },
-    welcome: { fontSize: 14, marginBottom: 16 },
-    searchContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#eee', borderRadius: 10, marginBottom: 16 },
-    input: { flex: 1, padding: 10 },
-    searchIcon: { marginRight: 10 },
-    menuContainer: { flexDirection: 'row', marginBottom: 16 },
-    popularButton: { backgroundColor: '#f39c12', padding: 8, borderRadius: 20, marginRight: 10 },
-    favoriteButton: { backgroundColor: '#ccc', padding: 8, borderRadius: 20 },
-    popularText: { color: '#fff' },
-    favoriteText: { color: '#333' },
-    card: { flex: 1, backgroundColor: '#f9f9f9', margin: 8, borderRadius: 10, overflow: 'hidden', elevation: 2 },
-    image: { width: '100%', height: 120 },
-    name: { padding: 8, fontWeight: 'bold', textAlign: 'center' },
-    centered: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-    notFoundContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20 },
-    notFoundText: { fontSize: 18, color: '#888' },
-  });
+  container: { flex: 1, backgroundColor: '#fff', padding: 16 },
+  hello: { fontSize: 24, fontWeight: 'bold' },
+  welcome: { fontSize: 14, marginBottom: 16 },
+  searchContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#eee', borderRadius: 10, marginBottom: 16, paddingHorizontal: 10 },
+  input: { flex: 1, padding: 10 },
+  searchIcon: { marginLeft: 10 },
+  menuContainer: { flexDirection: 'row', marginBottom: 16 },
+  popularButton: { backgroundColor: '#f39c12', padding: 8, borderRadius: 20, marginRight: 10 },
+  favoriteButton: { backgroundColor: '#ccc', padding: 8, borderRadius: 20 },
+  popularText: { color: '#fff' },
+  favoriteText: { color: '#333' },
+  card: { flex: 1, backgroundColor: '#f9f9f9', margin: 8, borderRadius: 10, overflow: 'hidden', elevation: 2 },
+  image: { width: '100%', height: 120 },
+  name: { padding: 8, fontWeight: 'bold', textAlign: 'center' },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  notFoundContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20 },
+  notFoundText: { fontSize: 18, color: '#888' },
+});
