@@ -8,6 +8,12 @@ export default function welcomeScreen ({ navigation }){
             <view>
                 <Text> Selamat Datang </Text>
                 <Text> Temukan Resep Favorit Kamu! </Text>
+
+                <TouchableOpacity style={StyleSheet.button}
+                onPress={() => navigation.replace ('HomeTab')}>
+                    
+                    <Text style= {StyleSheet.button}> Get Started </Text>
+                </TouchableOpacity>
             </view>
         </ImageBackground>
     )
