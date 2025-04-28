@@ -1,3 +1,7 @@
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
 function HomeStack() {
   return (
     <Stack.Navigator>
