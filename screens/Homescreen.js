@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react";
-import { View, Text, Image, TextInput, ouchableOpacity, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function Homescreen({navigation}){
+export default function HomeScreen({ navigation }) {
   const [meals, setMeals] = useState([]);
-  const [loading, setLoading] = useState (true);
-  const [searchText, setSearchText] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState(''); // << Tambahan
 
   const getMeals = async () => {
     try {
@@ -37,52 +37,51 @@ export default function Homescreen({navigation}){
     </TouchableOpacity>
   );
 
-  if (loading){
-    if (loading) {
-      return (
-        <View style={styles.centered}>
-          <ActivityIndicator size="large" color="#f39c12" />
-        </View>
-      );
-    }
-    
+  if (loading) {
     return (
-        <View style={styles.container}>
-          <Text style={styles.hello}>HELLO</Text>
-          <Text style={styles.welcome}>SELAMAT DATANG DI RESEP ALL STAR</Text>
-          
-          <View style={styles.searchContainer}>
-            <TextInput
-              placeholder="Cari makanan..."
-              style={styles.input}
-              value={searchText}
-              onChangeText={(text) => setSearchText(text)}
-            />
-            <Ionicons name="search" size={24} color="black" style={styles.searchIcon} />
-          </View>
-    
-          <View style={styles.menuContainer}>
-            <TouchableOpacity style={styles.popularButton}>
-              <Text style={styles.popularText}>Populer</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.favoriteButton}>
-              <Text style={styles.favoriteText}>Favorit</Text>
-            </TouchableOpacity>
-          </View>
-    
-          {filteredMeals.length === 0 ? (
-            <View style={styles.notFoundContainer}>
-              <Text style={styles.notFoundText}>🍽️ Makanan tidak ditemukan</Text>
-            </View>
-          ) : (
-            <FlatList
-              data={filteredMeals}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.idMeal}
-              numColumns={2}
-              contentContainerStyle={{ paddingBottom: 80 }}
-            />
-          )}
+      <View style={styles.centered}>
+        <ActivityIndicator size="large" color="#f39c12" />
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.hello}>HELLO</Text>
+      <Text style={styles.welcome}>SELAMAT DATANG DI RESEP ALL STAR</Text>
+      
+      <View style={styles.searchContainer}>
+        <TextInput
+          placeholder="Cari makanan..."
+          style={styles.input}
+          value={searchText}
+          onChangeText={(text) => setSearchText(text)}
+        />
+        <Ionicons name="search" size={24} color="black" style={styles.searchIcon} />
+      </View>
+
+      <View style={styles.menuContainer}>
+        <TouchableOpacity style={styles.popularButton}>
+          <Text style={styles.popularText}>Populer</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.favoriteButton}>
+          <Text style={styles.favoriteText}>Favorit</Text>
+        </TouchableOpacity>
+      </View>
+
+      {filteredMeals.length === 0 ? (
+        <View style={styles.notFoundContainer}>
+          <Text style={styles.notFoundText}>🍽️ Makanan tidak ditemukan</Text>
         </View>
-      );
-    }
+      ) : (
+        <FlatList
+          data={filteredMeals}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.idMeal}
+          numColumns={2}
+          contentContainerStyle={{ paddingBottom: 80 }}
+        />
+      )}
+    </View>
+  );
+}
